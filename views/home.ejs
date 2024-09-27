@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forum Management Project</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        height: 100%;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Background image styling */
+      body {
+        background-image: url("https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        backdrop-filter: brightness(0.5);
+        align-items: center;
+      }
+
+      /* Center container */
+      .container {
+        text-align: center;
+
+        padding: 50px;
+        border-radius: 10px;
+      }
+
+      /* Text styling */
+      .container h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      .container p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: whitesmoke;
+      }
+
+      /* Google sign-in button */
+      .google-signin {
+        display: inline-block;
+        background-color: #d2b5b5;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .google-signin img {
+        width: 40px;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+
+      .google-signin:hover {
+        background-color: #f1f1f1;
+        border-color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Forum Management</h1>
+      <p>
+        "Empowering collaboration and communication through efficient forum
+        management!"
+      </p>
+
+      <!-- Google Sign-In button -->
+      <a href="/auth/google" class="google-signin">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png"
+          alt="Google Logo"
+        />
+        Sign in with Google
+      </a>
+    </div>
+  </body>
+</html>
