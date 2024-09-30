@@ -163,7 +163,7 @@
                         <p class="mb-0 fs-3">My Task</p>
                       </a>
                       <a
-                        href="./authentication-login.html"
+                        href="/logout"
                         class="btn btn-outline-primary mx-3 mt-2 d-block"
                         >Logout</a
                       >
@@ -249,24 +249,24 @@
                 ' ') %></i
               >
               <br />
-              <a href="/answer/<%=answer.id%>"
-                ><button
-                  style="
-                    background-color: #28a745;
-                    color: white;
-                    padding: 10px 20px;
-                    margin-top: 1rem;
-                    border: none;
-                    border-radius: 5px;
-                  "
-                >
-                  Delete
-                </button></a
-              >
-            </div>
-
-            <% })%>
+              <% if(answer.userId == userId) { %>
+                <a href="/answer/<%= answer.id %>">
+                  <button
+                    style="
+                      background-color: #28a745;
+                      color: white;
+                      padding: 10px 20px;
+                      margin-top: 1rem;
+                      border: none;
+                      border-radius: 5px;
+                    "
+                  >
+                    Delete
+                  </button>
+                </a>
+              <% } %>
           </div>
+          <%  })%>
           <h4>Answer:</h4>
           <form id="formSubmit">
             <div id="editor">

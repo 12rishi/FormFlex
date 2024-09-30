@@ -18,6 +18,7 @@ const {
   handleAcceptInvite,
   handleDeleteQuestion,
   handleDeleteAnswer,
+  logOut,
 } = require("../controller/organization/organizationController");
 const { handleAuthenticate } = require("../middleware/authenticateMiddleware");
 const { multer, storage } = require("../middleware/multerConfig");
@@ -53,4 +54,5 @@ router
   .post(handleAuthenticate, handleInvitation);
 router.route("/accept-invitation").get(handleAuthenticate, handleAcceptInvite);
 router.route("/answer/:id").get(handleAuthenticate, handleDeleteAnswer);
+router.route("/logout").get(handleAuthenticate, logOut);
 module.exports = router;

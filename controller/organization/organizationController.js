@@ -157,6 +157,7 @@ exports.createQuestion = async (req, res) => {
   res.redirect("/forum");
 };
 exports.renderSingleQuestionPage = async (req, res) => {
+  const userId = req.userId;
   const organizationNumber = req.user[0].currentOrgNumber;
 
   const { id } = req.params;
@@ -175,7 +176,7 @@ exports.renderSingleQuestionPage = async (req, res) => {
     }
   );
   const answers = await sequelize.query(
-    `SELECT answer_${organizationNumber}.id , answer_${organizationNumber}.*, users.id AS userId, users.userName 
+    `SELECT answer_${organizationNumber}.*, users.userName 
      FROM answer_${organizationNumber} 
      JOIN users ON answer_${organizationNumber}.userId = users.id 
      WHERE questionId=?`,
@@ -184,12 +185,13 @@ exports.renderSingleQuestionPage = async (req, res) => {
       replacements: [id],
     }
   );
-  console.log(answers);
+  console.log(answers, userId);
 
   res.render("dashboard/singleQuestionPage", {
     question,
     questionImage,
     answers,
+    userId,
   });
 };
 exports.createQuestionImage = async (req, res, next) => {
@@ -395,4 +397,8 @@ exports.handleDeleteAnswer = async (req, res) => {
     replacements: [answerId],
   });
   res.redirect("/dashboard");
+};
+exports.logOut = (req, res) => {
+  res.clearCookie("token");
+  res.redirect("/");
 };
